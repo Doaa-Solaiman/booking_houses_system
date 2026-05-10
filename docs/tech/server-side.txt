@@ -1,0 +1,22 @@
+1. java itself
+    - https://naveen-metta.medium.com/anatomy-of-java-programs-a-comprehensive-guide-38ef4d0a9e9b
+1.1. java main method
+2. java.sql package (Connection, Statement, PreparedStatement, ResultSet)
+    - https://www.baeldung.com/java-jdbc
+      - 4. Executing SQL Statements
+      - 5. Parsing Query Results
+      - 8. Closing the Resources
+    - https://www.baeldung.com/sql/sql-statements-queries
+    - https://www.baeldung.com/sql-joins
+3. try-with-resources block
+4. CRUD: Create, Read, Update, Delete
+    - CRUD is about data records or rows
+    - Create -> INSERT INTO
+    - Read   -> SELECT
+    - Update -> UPDATE
+    - Delete -> DELETE FROM
+5. java collections
+    - list: ArrayList, LinkedList
+    - set: HashSet, LinkedHashSet, TreeSet
+    - map: HashMap, LinkedHashMap, TreeMap
+    - see Experiment1.javaCollections

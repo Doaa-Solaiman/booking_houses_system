@@ -1,0 +1,33 @@
+index
+- AppHost
+	- Bookings
+		- Timeline
+		- DetailsViewer
+		- Calendar
+	- PendingRequests
+	- DeclinedRequests
+	- Messages
+	- Presentation
+		- Cards (same file)
+		- Detail (same file)
+			- AvailabilityCalendar
+			- BookingForm
+			- BookingSidebar
+	- Accommodations (in file Objects)
+		- Photos (same file)
+	- RoomTypes (in file Objects)
+	- Rooms (in file Objects)
+		- Amenities
+	- PricingRules (in file Objects)
+	- Organization
+- AppGuest
+	- Header
+		- AboutUs
+			- LogoTitle (same file)
+			- Navigation (same file)
+			- AvailabilityCalendar (same file)
+	- Cards (in file Presentation)
+	- Detail (in file Presentation)
+		- AvailabilityCalendar
+		- BookingForm
+		- BookingSidebar

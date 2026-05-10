@@ -1,0 +1,145 @@
+array functions
+===============
+
+modify your arrays - add/remove content
+---------------------------------------
+
+push - add as last element
+pop - remove last element
+
+unshift - add as first element
+shift - remove first element
+
+concat - merges arrays to one array
+slice - get part of an array
+splice - changes the array contents (remove/add)
+
+------------
+
+(loop-based) array functions
+----------------------------
+
+process data:
+
+forEach - loop over array elements, iterate over array, calls a given function on each element 
+map - applies a given function on each element of an array
+filter - filters an array, let elements pass that pass the test in the given function
+reduce - process an array with a "reducer" function (function that get also its previous result)
+
+find stuff:
+
+find - find the first element that passes the test in the given function 
+findIndex - find the index of the first element that passes the test in the given function 
+indexOf - find the index of the first element that matches the given value
+includes - check if the given value is contained in the array
+findLast - find the last element that passes the test in the given function 
+findLastIndex - find the index of the last element that passes the test in the given function 
+lastIndexOf - find the index of the last element that matches the given value
+some - check if *any* element passes the test in the given function 
+every - check if *all* elements pass the test in the given function 
+
+------------
+
+(loop-based) array functions written as for-loops
+-------------------------------------------------
+
+for-loop commonsense:
+
+for (<init>; <condition>; <step>) {
+	<body>
+}
+
+forEach - loop over array elements, iterate over array, calls a given function on each element 
+
+for (let i=0; i<a.length; i++)
+	fn(a[i],i,a);
+
+map - applies a given function on each element of an array
+
+let result = [];
+for (let i=0; i<a.length; i++)
+	result.push(fn(a[i],i,a));
+return result;
+
+filter - filters an array, let elements pass that pass the test in the given function
+
+let result = [];
+for (let i=0; i<a.length; i++)
+	if (fn(a[i],i,a)) 
+		result.push(a[i]);
+return result;
+
+find - find the first element that passes the test in the given function 
+
+for (let i=0; i<a.length; i++)
+	if (fn(a[i],i,a)) 
+		return a[i];
+return undefined;
+
+findIndex - find the index of the first element that passes the test in the given function 
+
+for (let i=0; i<a.length; i++)
+	if (fn(a[i],i,a)) 
+		return i;
+return -1;
+
+indexOf - find the index of the first element that matches the given value
+
+for (let i=0; i<a.length; i++)
+	if (a[i]==value) 
+		return i;
+return -1;
+
+includes - check if the given value is contained in the array
+
+for (let i=0; i<a.length; i++)
+	if (a[i]==value) 
+		return true;
+return false;
+
+findLast - find the last element that passes the test in the given function 
+
+for (let i=a.length-1; i>=0; i--)
+	if (fn(a[i],i,a)) 
+		return a[i];
+return undefined;
+
+findLastIndex - find the index of the last element that passes the test in the given function 
+
+for (let i=a.length-1; i>=0; i--)
+	if (fn(a[i],i,a)) 
+		return i;
+return -1;
+
+lastIndexOf - find the index of the last element that matches the given value
+
+for (let i=a.length-1; i>=0; i--)
+	if (a[i]==value) 
+		return i;
+return -1;
+
+some - check if *any* element passes the test in the given function 
+
+for (let i=0; i<a.length; i++)
+	if (fn(a[i],i,a)) 
+		return true;
+return false;
+
+let somePass = false;
+for (let i=0; i<a.length && !somePass; i++)
+	somePass = somePass || fn(a[i],i,a); 
+return somePass;
+
+every - check if *all* elements pass the test in the given function 
+
+let everyPass = true;
+for (let i=0; i<a.length && everyPass; i++)
+	everyPass = everyPass && fn(a[i],i,a); 
+return everyPass;
+
+reduce - process an array with a "reducer" function (function that get also its previous result)
+
+let r = initialValue;
+for (let i=0; i<a.length; i++)
+	r = fn(r,a[i],i,a);
+return r;

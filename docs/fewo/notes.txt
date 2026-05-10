@@ -1,0 +1,73 @@
+
+Things to work on!
+- improve the looking of the website is okay! 
+- I am working on navigating between months. When we click on an element on the table, the same thing on the other table is highlighted.
+
+- Prices should not be the same the whole time, on weekends and seasons should be higher.
+- Improve The confirmation (Should Not be direct, the host has to accept or reject the booking) .
+- Working on making a responsive Dashboard for the host, so the host can upload images for his house/ control the price
+and the availability of the house.
+
+
+
+Was soll erstellt werden?
+* *Buchungsplattform für Ferienunterkünfte*
+* Plattformteilnehmer
+  * Gast / Suchende (die hoffentlich Buchende werden)
+  * Anbieter von Unterkünften
+  * Plattformbetreiber
+  
+Gast
+* Startseite (vor der Suche)
+  - ✔ Ansicht einer Liste *eines* Anbieters
+* Suchfunktionen
+  * Zeitraum, Ort, Preis, Unterkunftstyp
+* Objektansicht
+  - ✔ Ansicht/Präsentation/Informationen eines Objektes
+  - ~~(2) WIP Belegungsplan/-kalender~~ soll nicht mehr für Gäste gezeigt werden (Meeting am xx.xx.2024)
+* Buchungsfunktionen (nach der Suche)
+  - (1a) Buchung in Schritten
+* Bewertungssystem (nach der Buchung und Besuch)
+
+Anbieter
+* Funktionen zum Erstellen von Angeboten
+  - Objekte
+    - (3) Liste angebotener Objekte
+    - (3) Präsentation/Informationen eines Objektes pflegen
+  - Preisgestaltung
+* Buchungskalender	
+  - (1b) WIP Buchungskalender / ✔ Übersicht über Buchungen
+  - (1c) Detail-Informationen zu einer Buchung
+  - Wichtig: Die An- und Abreisedaten müssen sich nicht mit bestehenden Buchungen für das jeweilige Haus überschneiden.
+
+Woraus besteht ein Angebot? Was enthält ein Angebot?
+* Beschreibungstext & Fotos
+* Ort des Objektes
+* Unterkunftstyp
+  * z.B. Hotels, Ferienwohnungen, Ferienhäuser, Pensionen, Boote, Hostels, Ganze Ferienunterkünfte, Privatzimmer, Bed & Breakfasts, Ferienparks, Villen, Motels, Campingplätze, Lodges
+* Preis (Suchende filtern nach Budget)
+* Ausstattung (Liste von Ausstattungselementen/Features, die mit ja/nein gefiltert werden)
+  * z.B. Parkplatz, Nichtraucherzimmer, WLAN inklusive, Haustiere erlaubt, Familienzimmer, Barrierefrei, Restaurant, Fitnesscenter, Spa & Wellnesscenter
+* Anzahl der Zimmer (evtl. unterteilt nach Schlafzimmer und Badezimmer)
+  * Bedarf bei der Suche
+  * maximale Anzahl beim Anbieter (minus bisher gebuchte Anzahl im Anfragezeitraum)
+* Zimmerausstattung
+  * z.B. Eigenes Badezimmer, Küche/Kochnische, Klimaanlage, Meerblick, Küche, Kühlschrank, Terrasse, Dusche, Flachbild-TV, Handtücher, Bettwäsche, WC, Spülmaschine, Whirlpool, Aussicht, TV, Kaffee-/Teezubehör, Seeblick, Haartrockner, Wasserkocher, Steckdose in Bettnähe, Toilettenpapier, Kaffee* und Teezubehör, Sofa, Sitzbereich
+* Bewertung (ergibt sich nach und nach durch Bewertungssystem)
+* Buchungsrichtlinie
+  * z.B. Kostenlose Stornierung
+* Ideen für (viel) später:
+  * Unterkunftsbewertung (Inklusive Sterne und andere Bewertungen)
+  * Bettenpräferenz (z.B. 2 Einzelbetten, Doppelbett)
+  * Freizeitmöglichkeiten in der Umgebung (z.B. Angeln, Wandern, Wassersportmöglichkeiten, Strand, Radfahren)
+  * Viertel (wenn Großstadt)
+
+Vokabular
+* Mietobjekt (das "Angebot" in unserem Kontext)
+  * Campingparkplatz
+  * Unterkunft
+    * Ferienwohnung
+    * Ferienhaus
+      * Sommerhaus
+    * Hotel
+    * ...Unterkunftstypen!

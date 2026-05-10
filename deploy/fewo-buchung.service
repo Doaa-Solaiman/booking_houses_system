@@ -1,0 +1,13 @@
+[Unit]
+Description=Fewo Buchung java app as service
+
+[Service]
+Type=forking
+User=sst
+WorkingDirectory=/home/sst
+ExecStart=/home/sst/start.sh
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

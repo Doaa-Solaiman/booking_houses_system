@@ -1,0 +1,35 @@
+# update fewo application (All the steps are importanat to be done every time we refleck the changes)
+
+1. webapp build -- to create target/classes/app-host output
+	- app-host console -> build.bat
+*The first step is important, and we need to do it every time we change React frontend code.
+
+2. maven install -- to create .jar file output
+	- right-click project (Not Host or guest track)-> run...where you get Maven options like build/clean/install..etc
+*The second step is also important because it helps repackage everything with the latest frontend(backend & frontend)	
+*What does this step do?
+	packages the Java code and frontend together into a jar file.
+	
+		
+3. copy to production server
+	- click project -> open console -> copy-to-prod.bat
+* The main step of transfer the changes to the server.
+
+	
+4. restart fewo application
+	- putty -> login -> sudo systemctl restart fewo-buchung.service
+*This step is responsible for reloading the server process, so it uses the new .jar file and content.	
+
+# application files
+
+- app.properties -- configs for ...
+	- webserver, database server, mail server, file storage, the app itself
+- logging.properties
+	- configuration for logging system / log output
+- start.sh
+	- java -jar fewo-buchung-0.0.1-SNAPSHOT.jar 2>&1 > output.log &
+	- script to start app in background, with output redirected to file
+- fewo-buchung.service
+	- unit file for linux' systemd
+	- https://unix.stackexchange.com/a/442620
+	- https://unix.stackexchange.com/a/523605

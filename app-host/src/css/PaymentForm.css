@@ -1,0 +1,65 @@
+.paymentFormOverlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	background: rgba(0, 0, 0, 0.05);
+}
+
+.payment-form {
+	background-color: white;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	width: 100%;
+	max-width: 500px;
+}
+
+.payment-form h3 {
+	margin-bottom: 1rem;
+}
+
+.payment-form form label {
+	display: block;
+	margin-bottom: 1rem;
+	font-weight: 500;
+}
+
+.payment-form input {
+	width: 100%;
+	padding: 0.5rem;
+	margin-top: 0.3rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.form-actions {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1.5rem;
+}
+
+.form-actions .back {
+	background: rgb(110, 110, 110);
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.form-actions .back:hover{
+	background-color: rgb(192, 192, 192);
+}
+
+.form-actions .submit {
+	background: rgb(0, 128, 192);
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.form-actions .submit:hover{
+	background-color:  rgb(10, 98, 169);
+}

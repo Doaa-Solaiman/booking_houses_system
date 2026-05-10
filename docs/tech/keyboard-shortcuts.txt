@@ -1,0 +1,7 @@
+
+- line start/end	Pos1 / Ende
+- mark/select 		Shift + Cursor
+- word navigation 	Strg + Cursor
+- cut				Strg + X		Shift + Entf
+- copy				Strg + C		Strg + Einfg
+- paste				Strg + V		Shift + Einfg

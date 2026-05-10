@@ -1,0 +1,10 @@
+Things to work on & Fix
+
+- Photo slider function problem & Adjust the view of the photos
+-Build a component for detailed house describtion.
+
+
+Link of a website to see how it works
+https://www.novasol.de/ferienhaeuser/boltenhagen-dmk869?locationTag=280&&areas=78005
+
+Adjust number of guests with icon, How many beds, bathroom, park place, 

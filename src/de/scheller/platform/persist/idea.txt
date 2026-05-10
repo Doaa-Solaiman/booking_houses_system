@@ -1,0 +1,75 @@
+GOALS:
+0. make design as simple as possible
+1. fast (mass) materializing records to beans
+1.1. with random access (by db-table+pk or entity-type+id)
+1.2. very compact to hold as much data in memory as possible
+1.3. should work with incomplete data, populate gradually
+2. local contents synced with a backend
+2.1. simple ORM features
+2.2. integrate with existing stuff (beans, BeanManager, BeanManagerUtil)
+3. avoid transport/serialization where possible
+4. better query performance
+
+SOLUTIONS & EFFECTS:
+0. I tried hardly
+1. compact in-memory bean representation
+	- minimize traffic from backend (eg. ids only)
+	- read/transmit-efficient holding of data (almost finished beans)
+	- FST serialization was choosen
+	- some research was done:
+		- lots of searching, stack overflow etc.
+		- https://github.com/eishay/jvm-serializers/wiki
+		- https://github.com/RuedigerMoeller/fast-serialization/wiki/Benchmark
+		- https://github.com/jankotek/elsa (possible alternative?)
+		- lots of searching and experiments for in-memory (off-heap)
+		- https://github.com/yahoo/HaloDB
+		- https://github.com/OpenHFT/Chronicle-Map
+		- http://www.mapdb.org/
+1.1. position index (entity-type/id -> position in memory)
+	- allows random access to in-memory "beans"
+	- for materializing as bean collection or as byte stream
+	- for bulk lazy loading
+1.2. compression with random read access (in-memory BGFZ)
+	- space efficient holding of actual data
+	- multi-layer storage/caching (beans < bytes < bgfz < backend)
+		- beancache: maybe?
+		- 1st layer: uncompressed bytes + pos index -> byte array
+		- 2nd layer: compressed bytes + pos index -> in-memory bgzf
+		- backend: jdbc database
+	- at certain times do compactation from layer 1 to 2
+	- BGFZ was choosen, extracted from https://github.com/samtools/htsjdk
+	- was quite challenging, tried different stuff:
+		- lots of searching, stack overflow etc.
+		- not really working: https://github.com/blacelle/jzran
+		- too limited: https://github.com/miurahr/dictzip-java
+		- too academic: http://people.csail.mit.edu/ronitt/CODE/LZ78RandomAccess
+		- finally: https://blastedbio.blogspot.com/2011/11/bgzf-blocked-bigger-better-gzip.html
+		- the bioinformatic guys made it ...with their tons of genome data:
+			- https://sites.google.com/site/bioinformaticsremarks/bioinfo/sam-bam-format
+			- https://biopython.org/DIST/docs/api/Bio.bgzf-module.html
+1.3. read-access through layers
+	- with bulk lookup/loading remaining data in next layer
+2. only immutables
+	- in-memory append-only every version of a record
+	- pos-index updates after backend write-success (write-through)
+	- orphaned old versions
+2.1. simple ORM features for full control over backend access
+	- easier control/sync with database
+		- every modification (mass populate / insert / update / delete)
+		--> new serialized bean (bytes) to layer 1
+		- only after successful write to backend (transaction commited)
+	- dreaming of the removal of hibernate
+2.2. simple ORM features for load/save/delete & easy queries
+	- JPA impl not required because of BeanManager + client/server
+	- use built model/beantypes & existing database schema
+	- DDL create/update? DB migration?
+3. client/server lib
+	- allows sending bean bytes direct from server memory to client memory
+	- deserialize in the very last moment
+	- support transferobject lazy loading mechanism
+4. fast query results in local process or in client
+	- query results as ids only
+		- for server: locally materialize to beans
+		- for client: build bytestream, send, client materializes beans
+	- query result caching can be very space efficient (result = positions)
+	- as fast as or faster than direct jdbc (without hibernate)
